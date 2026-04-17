@@ -56,7 +56,7 @@ app.get('/api/manga/cover', async (req, res) => {
 
 
 app.get('/', (req, res) => {
-    res.json({mensaje: 'Servidor funcionando'});
+    res.json({mensaje: 'Servidor funcionando correctamente en Render'});
 });
 
 app.listen(PORT, () => {
