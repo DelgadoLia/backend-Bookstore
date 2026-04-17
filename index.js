@@ -40,6 +40,19 @@ app.get('/api/manga', async (req, res) => {
   }
 });
 
+app.get('/api/manga/cover', async (req, res) => {
+  try {
+    const { url } = req.query;
+    const response = await fetch(decodeURIComponent(url));
+    const buffer = await response.arrayBuffer();
+    const contentType = response.headers.get('content-type') || 'image/jpeg';
+    res.set('Content-Type', contentType);
+    res.send(Buffer.from(buffer));
+  } catch (error) {
+    res.status(500).json({ error: 'Error al obtener imagen' });
+  }
+});
+
 
 app.get('/', (req, res) => {
     res.json({mensaje: 'Servidor funcionando'});
