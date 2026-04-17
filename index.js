@@ -40,6 +40,7 @@ app.get('/api/manga', async (req, res) => {
   }
 });
 
+
 app.get('/api/manga/cover', async (req, res) => {
   try {
     const { url } = req.query;
